@@ -5,7 +5,8 @@ module.exports = {
     entry: path.join(__dirname, "src", "index.js"),
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: './'
     },
     module: {
         rules: [
@@ -25,6 +26,7 @@ module.exports = {
     // Serve index.html as the base
     devServer: {
         static: path.resolve(__dirname, "src"),
+        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({
